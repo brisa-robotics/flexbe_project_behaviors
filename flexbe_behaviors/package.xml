@@ -1,18 +1,20 @@
 <package>
   <name>flexbe_behaviors</name>
-  <version>1.0.0</version>
+  <version>0.0.0</version>
   <description>
      flexbe_behaviors references all implemented behaviors.
   </description>
+
+  <author email="support@synapticon.com">Synapticon GmbH</author>
   <maintainer email="todo@todo.com">TODO</maintainer>
   <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>
 
   <run_depend>rospy</run_depend>
+  <run_depend>sncn_flexbe_states</run_depend>
 
   <!-- Add here all ROS packages that contain behaviors -->
-  <run_depend>behavior_example_behavior</run_depend>
 
   <export>
     <flexbe_behaviors />
