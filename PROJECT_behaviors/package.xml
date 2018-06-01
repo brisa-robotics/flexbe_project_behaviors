@@ -1,8 +1,8 @@
 <package>
-  <name>flexbe_behaviors</name>
+  <name>PROJECT_behaviors</name>
   <version>0.0.0</version>
   <description>
-     flexbe_behaviors references all implemented behaviors.
+     PROJECT_behaviors references all implemented behaviors.
   </description>
 
   <author email="support@synapticon.com">Synapticon GmbH</author>
@@ -12,7 +12,7 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <run_depend>rospy</run_depend>
-  <run_depend>sncn_flexbe_states</run_depend>
+  <run_depend>lona_flexbe_states</run_depend>
 
   <!-- Add here all ROS packages that contain behaviors -->
 

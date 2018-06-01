@@ -8,8 +8,7 @@
 ###########################################################
 
 from flexbe_core import Behavior, Autonomy, OperatableStateMachine, ConcurrencyContainer, PriorityContainer, Logger
-from sncn_flexbe_states.undock_state import UndockState
-from sncn_flexbe_states.reset_localization_state import ResetLocalizationState
+from lona_flexbe_states.tts_state import TTSState
 # Additional imports can be added inside the following tags
 # [MANUAL_IMPORT]
 
@@ -47,7 +46,7 @@ class ExampleBehaviorSM(Behavior):
 
 
     def create(self):
-        # x:617 y:333, x:63 y:408
+        # x:617 y:333, x:239 y:358
         _state_machine = OperatableStateMachine(outcomes=['finished', 'failed'])
         _state_machine.userdata.undock_backward_dist = 0.5
         _state_machine.userdata.undock_inplace_rot_angle = 0.0
@@ -59,18 +58,11 @@ class ExampleBehaviorSM(Behavior):
 
 
         with _state_machine:
-            # x:140 y:117
-            OperatableStateMachine.add('reset_localization',
-                                        ResetLocalizationState(),
-                                        transitions={'finished': 'undock', 'failed': 'failed'},
-                                        autonomy={'finished': Autonomy.Off, 'failed': Autonomy.Off})
-
-            # x:341 y:245
-            OperatableStateMachine.add('undock',
-                                        UndockState(),
+            # x:30 y:40
+            OperatableStateMachine.add('tts',
+                                        TTSState(text='Hello world'),
                                         transitions={'done': 'finished', 'failed': 'failed'},
-                                        autonomy={'done': Autonomy.Off, 'failed': Autonomy.Off},
-                                        remapping={'backward_distance': 'undock_backward_dist', 'in_place_rotation_angle': 'undock_inplace_rot_angle'})
+                                        autonomy={'done': Autonomy.Off, 'failed': Autonomy.Off})
 
 
         return _state_machine
